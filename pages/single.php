@@ -1,6 +1,6 @@
 <?php
 
-$post=$db->prepare('select * from articles where id = ?',[$_GET['id']],'App\Table\Article',true);
+$post=\App\App::getDb()->prepare('select * from articles where id = ?',[$_GET['id']],'App\Table\Article',true);
 //var_dump($post);
 ?>
 

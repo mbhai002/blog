@@ -7,8 +7,21 @@
  */
 
 namespace App\Table;
+use App\App;
 
 class Article{
+
+    /**
+     * @return array
+     */
+    public static function getLast(){
+
+        return App::getDb()->query('
+              select articles.id, articles.titre, articles.contenu, categories.titre as categorie 
+              from articles 
+              LEFT JOIN categories 
+                ON categories_id=categories.id', __CLASS__);
+    }
 
     public function __get($key){
 

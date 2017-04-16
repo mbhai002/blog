@@ -18,7 +18,6 @@ if(isset($_GET['p'])){
     $p='home';
 }
 
-$db=new \App\Database('blog');
 
 
 ob_start();
