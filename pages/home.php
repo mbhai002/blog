@@ -1,4 +1,14 @@
-<h2>home page </h2>
-<p><a href="index.php?p=single"> Single</a></p>
 
-TESTNKMJQMNDKQJNM
+<?php
+
+
+foreach ($db->query('select * from articles', 'App\Table\Article') as $post):?>
+
+
+    <h2><a href="<?= $post->url ?>"><?=$post->titre; ?></a></h2>
+    <p><?=  $post->extrait; ?></p>
+
+
+
+<?php endforeach;?>
+

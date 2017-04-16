@@ -1,1 +1,13 @@
-<h1> je suis la single </h1>
+<?php
+
+$post=$db->prepare('select * from articles where id = ?',[$_GET['id']],'App\Table\Article',true);
+//var_dump($post);
+?>
+
+
+
+<h1><?= $post->titre; ?></h1>
+
+
+<p><?= $post->contenu; ?> </p>
+
