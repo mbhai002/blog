@@ -6,7 +6,10 @@
         <?php
 
 
-        foreach (\App\Table\Article::getLast()as $post):?>
+        use App\Table\Article;
+        use App\Table\Categorie;
+
+        foreach (Article::getLast() as $post):?>
 
 
 
@@ -26,7 +29,7 @@
     </div>
     <div class="col-sm-4">
         <ul>
-        <?php foreach (\App\Table\Categorie::all() as $categorie): ?>
+        <?php foreach (Categorie::all() as $categorie): ?>
 
             <li><a href="<?= $categorie->url; ?>"><?=$categorie->titre; ?></a></li>
         <?php endforeach;?>

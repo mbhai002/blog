@@ -30,6 +30,12 @@ class App{
 
     }
 
+    public static function notFound(){
+
+        header("HTTP/1.0 404 Not found");
+        header('Location:index.php?p=404');
+    }
+
 }
 
 
