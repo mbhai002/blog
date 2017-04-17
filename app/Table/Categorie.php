@@ -9,16 +9,19 @@
 namespace App\Table;
 use App\App;
 
-class Categorie{
+class Categorie extends  Table{
 
 
-    private static $table = 'categories';
-
-    public static function all() {
+    protected static $table = 'categories';
 
 
-        return App::getDb()->query("select  * from  " . self::$table . "", __CLASS__);
+    public function getUrl(){
+
+        return 'index.php?p=categorie&id=' .$this->id;
     }
+
+
+
 
 
 

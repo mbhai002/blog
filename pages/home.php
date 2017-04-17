@@ -8,7 +8,6 @@
 
         foreach (\App\Table\Article::getLast()as $post):?>
 
-            <?php //var_dump($post); ?>
 
 
             <h2><a href="<?= $post->url ?>"><?=$post->titre; ?></a></h2>
@@ -29,7 +28,7 @@
         <ul>
         <?php foreach (\App\Table\Categorie::all() as $categorie): ?>
 
-            <li><a href="<?$categorie->url; ?>"><?=$categorie->titre; ?></a></li>
+            <li><a href="<?= $categorie->url; ?>"><?=$categorie->titre; ?></a></li>
         <?php endforeach;?>
 
         </ul>

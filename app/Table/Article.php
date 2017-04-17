@@ -9,7 +9,7 @@
 namespace App\Table;
 use App\App;
 
-class Article{
+class Article extends Table{
 
     /**
      * @return array
@@ -23,15 +23,7 @@ class Article{
                 ON categories_id=categories.id', __CLASS__);
     }
 
-    public function __get($key){
 
-
-        $method='get'.ucfirst($key);
-        $this->$key=$this->$method();
-        return $this->$key;
-
-        // TODO: Implement __get() method.
-    }
 
     public function getUrl(){
 
