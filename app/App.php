@@ -9,43 +9,21 @@ namespace App;
 class App{
 
 
-    const DB_NAME = 'blog';
-    const DB_USER= 'root';
-    const DB_PASS= 'Mblight87';
-    const DB_HOST='localhost';
+    public $title="my blog";
+    private static $_instance;
 
-    private static $database;
-    private static $title = 'my Blog';
+    public static function getInsance(){
 
-    public static function getDb(){
+        if(is_null (self::$_instance)){
 
-        if( self::$database===null){
-
-            self::$database = new Database(self::DB_NAME,self::DB_USER,self::DB_PASS,self::DB_HOST);
-
+            self::$_instance=new App();
         }
-        return self::$database;
 
-
-
+        return self::$_instance;
 
     }
 
-    public static function notFound(){
 
-        header("HTTP/1.0 404 Not found");
-        header('Location:index.php?p=404');
-    }
-
-    public static function getTitle(){
-
-        return self::$title;
-    }
-
-    public static function setTitle($title){
-
-        self::$title=$title;
-    }
 
 }
 

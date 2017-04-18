@@ -5,11 +5,25 @@
  * Date: 14/04/2017
  * Time: 21:40
  */
+session_start();
 require  '../app/Autoloader.php';
 
 App\Autoloader::register();
 
+$app=\App\App::getInsance();
 
+
+
+
+
+
+
+
+
+
+
+
+/*
 if(isset($_GET['p'])){
 
     $p=$_GET['p'];
@@ -32,3 +46,5 @@ if($p==='home'){
 }
 $content = ob_get_clean();
 require '../pages/templates/default.php';
+
+*/
