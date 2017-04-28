@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="shop@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="shop">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="demo"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sch"/>
+    <schema id="8" parent="1" name="school"/>
+    <schema id="9" parent="1" name="sys"/>
+    <table id="10" parent="2" name="batch"/>
+    <table id="11" parent="2" name="brand"/>
+    <table id="12" parent="2" name="department"/>
+    <table id="13" parent="2" name="item"/>
+    <table id="14" parent="2" name="marks_table"/>
+    <table id="15" parent="2" name="provider"/>
+    <table id="16" parent="2" name="purchase"/>
+    <table id="17" parent="2" name="purchaselist"/>
+    <column id="18" parent="10" name="idBATCH">
+      <Position>1</Position>
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="10" name="barcode">
+      <Position>2</Position>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="10" name="makingDate">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="21" parent="10" name="deliveryDate">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="22" parent="10" name="lapsingDate">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="23" parent="10" name="providerid">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="24" parent="10" name="barcode">
+      <ColNames>barcode</ColNames>
+    </index>
+    <index id="25" parent="10" name="providerid">
+      <ColNames>providerid</ColNames>
+    </index>
+    <key id="26" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idBATCH
+barcode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="27" parent="10" name="batch_ibfk_1">
+      <ColNames>barcode</ColNames>
+      <RefSchemaName>shop</RefSchemaName>
+      <RefTableName>item</RefTableName>
+      <RefColNames>barcode</RefColNames>
+    </foreign-key>
+    <foreign-key id="28" parent="10" name="batch_ibfk_2">
+      <ColNames>providerid</ColNames>
+      <RefSchemaName>shop</RefSchemaName>
+      <RefTableName>provider</RefTableName>
+      <RefColNames>idprovider</RefColNames>
+    </foreign-key>
+    <column id="29" parent="11" name="idbrand">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="11" name="name">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+    </column>
+    <column id="31" parent="11" name="contenu">
+      <Position>3</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <key id="32" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idbrand</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="12" name="iddep">
+      <Position>1</Position>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="12" name="name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <key id="35" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>iddep</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="36" parent="13" name="barcode">
+      <Position>1</Position>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="13" name="name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="38" parent="13" name="price">
+      <Position>3</Position>
+      <DataType>decimal(6,2)|0</DataType>
+    </column>
+    <column id="39" parent="13" name="packaging">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="40" parent="13" name="unit">
+      <Position>5</Position>
+      <DataType>varchar(5)|0</DataType>
+    </column>
+    <column id="41" parent="13" name="amount">
+      <Position>6</Position>
+      <DataType>decimal(8,3)|0</DataType>
+    </column>
+    <column id="42" parent="13" name="bio">
+      <Position>7</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="43" parent="13" name="iddep">
+      <Position>8</Position>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="13" name="idbrand">
+      <Position>9</Position>
+      <DataType>int(3)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="45" parent="13" name="idbrand">
+      <ColNames>idbrand</ColNames>
+    </index>
+    <index id="46" parent="13" name="iddep">
+      <ColNames>iddep</ColNames>
+    </index>
+    <key id="47" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>barcode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="48" parent="13" name="item_ibfk_1">
+      <ColNames>iddep</ColNames>
+      <RefSchemaName>shop</RefSchemaName>
+      <RefTableName>department</RefTableName>
+      <RefColNames>iddep</RefColNames>
+    </foreign-key>
+    <foreign-key id="49" parent="13" name="item_ibfk_2">
+      <ColNames>idbrand</ColNames>
+      <RefSchemaName>shop</RefSchemaName>
+      <RefTableName>brand</RefTableName>
+      <RefColNames>idbrand</RefColNames>
+    </foreign-key>
+    <column id="50" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="14" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="14" name="yearOfstudy">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="14" name="mark">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="15" name="idprovider">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="55" parent="15" name="name">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+    </column>
+    <column id="56" parent="15" name="street">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="57" parent="15" name="city">
+      <Position>4</Position>
+      <DataType>varchar(25)|0</DataType>
+    </column>
+    <column id="58" parent="15" name="pcode">
+      <Position>5</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="59" parent="15" name="email">
+      <Position>6</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="60" parent="15" name="Pnumber">
+      <Position>7</Position>
+      <DataType>varchar(12)|0</DataType>
+    </column>
+    <key id="61" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idprovider</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="62" parent="16" name="idpurchase">
+      <Position>1</Position>
+      <DataType>int(8)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="16" name="purchaseDate">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="64" parent="16" name="total">
+      <Position>3</Position>
+      <DataType>decimal(6,2)|0</DataType>
+    </column>
+    <key id="65" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idpurchase</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="66" parent="17" name="barcode">
+      <Position>1</Position>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="17" name="idpurchase">
+      <Position>2</Position>
+      <DataType>int(8)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="17" name="quantite">
+      <Position>3</Position>
+      <DataType>int(3)|0</DataType>
+    </column>
+    <index id="69" parent="17" name="idpurchase">
+      <ColNames>idpurchase</ColNames>
+    </index>
+    <key id="70" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>barcode
+idpurchase</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="71" parent="17" name="purchaselist_ibfk_1">
+      <ColNames>barcode</ColNames>
+      <RefSchemaName>shop</RefSchemaName>
+      <RefTableName>item</RefTableName>
+      <RefColNames>barcode</RefColNames>
+    </foreign-key>
+    <foreign-key id="72" parent="17" name="purchaselist_ibfk_2">
+      <ColNames>idpurchase</ColNames>
+      <RefSchemaName>shop</RefSchemaName>
+      <RefTableName>purchase</RefTableName>
+      <RefColNames>idpurchase</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
