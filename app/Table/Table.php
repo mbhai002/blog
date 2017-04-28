@@ -11,9 +11,76 @@ use App\App;
 
 class Table{
 
-    /**
-     * @return array
-     */
+    protected $table;
+
+    public function __construct(){
+
+        var_dump(get_class($this));
+
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*
+
+     //@return array
+
 
     protected static $table;
 
@@ -70,3 +137,4 @@ class Table{
 
 
 }
+*/

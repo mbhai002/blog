@@ -1,50 +1,25 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mohamed
- * Date: 14/04/2017
- * Time: 21:40
- */
-session_start();
-require  '../app/Autoloader.php';
+define('ROOT', dirname(__DIR__));
+require ROOT . '/app/App.php';
+App::load();
 
-App\Autoloader::register();
-
-$app=\App\App::getInsance();
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 if(isset($_GET['p'])){
-
-    $p=$_GET['p'];
+    $page = $_GET['p'];
 }else{
-
-    $p='home';
+    $page = 'posts.index';
 }
 
 
 
-ob_start();
-
-if($p==='home'){
-
-    require '../pages/home.php';
-}elseif($p==='article'){
-    require '../pages/single.php';
-}elseif($p==='categorie'){
-    require '../pages/categorie.php';
+$page = explode('.', $page);
+if($page[0] == 'admin'){
+    $controller = '\App\Controller\Admin\\' . ucfirst($page[1]) . 'Controller';
+    $action = $page[2];
+} else{
+    $controller = '\App\Controller\\' . ucfirst($page[0]) . 'Controller';
+    $action = $page[1];
 }
-$content = ob_get_clean();
-require '../pages/templates/default.php';
 
-*/
+
+$controller = new $controller();
+$controller->$action();
